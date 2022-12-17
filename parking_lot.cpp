@@ -16,9 +16,7 @@ ParkingLot::~ParkingLot() {
 
 void ParkingLot::ParkVehicle() {
     // Find the nearest unoccupied parking spot
-    auto iter = std::find_if(spots_, spots_ + num_spots_, [](const ParkingSpot& spot) {
-        return !spot.is_occupied;
-    });
+    auto iter = std::find_if(spots_, spots_ + num_spots_, [](const ParkingSpot& spot){return !spot.is_occupied;} );
 
     // Mark the spot as occupied
     if (iter != spots_ + num_spots_) {
