@@ -2,11 +2,8 @@
 #define PARKING_LOT_H
 
 #include <cstdint>
-
-struct ParkingSpot {
-    int32_t distance_from_gate;
-    bool is_occupied;
-};
+#include<vector>
+#include <algorithm>
 
 class Vehicle {
 private:
@@ -22,16 +19,17 @@ public:
     std::string getLicensePlate();
 };
 
+
 class ParkingSpace {
   private:
     int row;
     int column;
     bool occupied;
     std::string receiptNumber;
+    int distanceFromLift;
 
   public:
-    ParkingSpace(int row, int column, bool occupied, std::string receiptNumber)
-        : row(row), column(column), occupied(occupied), receiptNumber(receiptNumber) {}
+    ParkingSpace(int row, int column, bool occupied, std::string receiptNumber);
 
     int getRow();
     int getColumn();
@@ -44,15 +42,17 @@ class ParkingSpace {
 
 class ParkingLot {
 public:
-    ParkingLot(int32_t num_spots);
+    ParkingLot(int rows, int columns);
     ~ParkingLot();
 
     void ParkVehicle();
     void RemoveVehicle();
 
 private:
-    ParkingSpot* spots_;
-    int32_t num_spots_;
+    int rows;
+    int columns;
+    stack<make_pair(int, ParkingSpace)> distanceStack;
+    vector<vector<ParkingSpace>> lot; 
 };
 
 #endif // PARKING_LOT_H

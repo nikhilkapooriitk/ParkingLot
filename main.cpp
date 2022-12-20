@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stack>
 #include "parking_lot.h"
 
 int main() {

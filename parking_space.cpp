@@ -1,20 +1,22 @@
-#include <string>
+#include "parking_lot.h"
 
-class ParkingSpace {
-  private:
-    int row;
-    int column;
-    bool occupied;
-    std::string receiptNumber;
+ParkingSpace::ParkingSpace(){
+        row = 0; column = 0; occupied = true; receiptNumber = ""; distanceFromLift = 0;
+    }
 
-  public:
-    ParkingSpace(int row, int column, bool occupied, std::string receiptNumber)
-        : row(row), column(column), occupied(occupied), receiptNumber(receiptNumber) {}
+ParkingSpace::ParkingSpace(int row, int column, bool occupied, std::string receiptNumber, int distanceFromLift)
+        : row(row), column(column), occupied(occupied), receiptNumber(receiptNumber), distanceFromLift(distanceFromLift){}
 
-    int getRow() const { return row; }
-    int getColumn() const { return column; }
-    bool isOccupied() const { return occupied; }
-    std::string getReceiptNumber() const { return receiptNumber; }
-    void setOccupied(bool occupied) { this->occupied = occupied; }
-    void setReceiptNumber(std::string receiptNumber) { this->receiptNumber = receiptNumber; }
-};
+ParkingSpace::int getRow() const { return row; }
+
+ParkingSpace::int getColumn() const { return column; }
+
+ParkingSpace::bool isOccupied() const { return occupied; }
+
+ParkingSpace::std::string getReceiptNumber() const { return receiptNumber; }
+
+ParkingSpace::void setOccupied(bool occupied) { this->occupied = occupied; }
+
+ParkingSpace::void setReceiptNumber(std::string receiptNumber) { this->receiptNumber = receiptNumber; }
+
+
